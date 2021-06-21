@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    public GameObject landPrefab;
+    public GameObject objectPrefab;
     public static ObjectPool SharedInstance;
     public List<GameObject> pooledObjects;
     public int amountToPool = 2;
-    public float offset = -10.24f; 
+    public float xOffset = 10.24f;
+    public float xPos = -10.24f; 
+    public float yPos = -4;
 
     void Awake() 
     {
@@ -21,11 +23,11 @@ public class ObjectPool : MonoBehaviour
         GameObject tmp;
         for (int i = 0; i < amountToPool; i++)
         {
-            tmp = Instantiate(landPrefab, new Vector3(offset, -4, 0), Quaternion.identity);
+            tmp = Instantiate(objectPrefab, new Vector3(xPos, yPos, 0), Quaternion.identity);
             tmp.SetActive(true);
             pooledObjects.Add(tmp);
 
-            offset += 10.24f;
+            xPos += xOffset;
         }
     }
 

@@ -22,13 +22,14 @@ public class PlayerController : MonoBehaviour
         {
             rb2d.AddForce(transform.up * flapForce, ForceMode2D.Impulse);
         }
+        
     }
 
     //Upon collision, check if the other object is tagged as obstacle
     private void OnCollisionEnter2D(Collision2D other)
     {
         // Game Over
-        if (other.gameObject.tag == "Obstacle")
+        if (other.gameObject.tag == "Pillar" || other.gameObject.name == "Floor Bound")
         {
             Debug.Log("GAME OVER");
         }
