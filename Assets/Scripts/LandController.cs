@@ -5,13 +5,10 @@ using UnityEngine;
 
 public class LandController : MonoBehaviour
 {
-    public GameObject landPrefab;
     public GameObject[] landTiles;
     
-    public Vector3 spawnPos = new Vector3(0, -4, 0);
     public float offscreenXPos = -4.1f;
     public Vector3 respawnPos = new Vector3(16.38f, -4, 0);
-    public float offset = 10.24f; 
     public float movementSpeed = -0.1f;
 
     void Start()
@@ -34,15 +31,6 @@ public class LandController : MonoBehaviour
             {
                 landTiles[i].transform.position = respawnPos;
             }
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D col)
-    {
-        col.gameObject.transform.position.Set(10.24f, -2, 0);
-        if (col.gameObject.tag == "Cleanup")
-        {
-            transform.position.Set(10.24f, -2, 0);
         }
     }
 }
